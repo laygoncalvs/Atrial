@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -24,7 +24,6 @@ class Paciente(db.Model):
 @app.route("/")
 def home():
     return render_template("index.html")
-
 
 @app.route("/pacientes/novo", methods=["GET", "POST"])
 def cadastro_paciente():
@@ -52,8 +51,9 @@ def cadastro_paciente():
 
         print("Paciente cadastrado com sucesso!")
 
-    return render_template("cadastros.html")
+        return redirect(url_for("pacientes"))
 
+    return render_template("cadastros.html")
 
 @app.route("/pacientes")
 def pacientes():

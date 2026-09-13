@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pacientes - Atrial</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Atrial</h1>
+    </header>
+
+    <main>
+
+        <h2>Pacientes cadastrados</h2>
+
+        <p>Aqui serão exibidos os pacientes cadastrados no sistema.</p>
+
+        <section>
+
+            <h3>Lista de pacientes</h3>
+
+            {% if pacientes %}
+
+                {% for paciente in pacientes %}
+
+                    <div>
+
+                        <p><strong>Nome:</strong> {{ paciente.nome }}</p>
+
+                        <p><strong>Nascimento:</strong> {{ paciente.nascimento }}</p>
+
+                        <p><strong>CPF:</strong> {{ paciente.cpf }}</p>
+
+                        <p><strong>Telefone:</strong> {{ paciente.telefone }}</p>
+
+                        <p><strong>E-mail:</strong> {{ paciente.email }}</p>
+
+                        <p><strong>Observações:</strong> {{ paciente.observacoes }}</p>
+
+                    </div>
+
+                    <hr>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>Nenhum paciente cadastrado ainda.</p>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

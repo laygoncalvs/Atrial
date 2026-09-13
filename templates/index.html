@@ -3,31 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sistema Hospitalar</title>
+    <title>Pacientes - Atrial</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
     <header>
-        <h1>Sistema Hospitalar</h1>
+        <h1>Atrial</h1>
     </header>
 
     <main>
 
-        <h2>Bem-vindo!</h2>
-
-        <p>
-            Gerencie os pacientes e organize os atendimentos.
-        </p>
+        <h2>Pacientes cadastrados</h2>
 
         <section>
 
-            <h3>Pacientes</h3>
+            <h3>Paciente</h3>
 
-            <button>Cadastrar paciente</button>
+            <p><strong>Nome:</strong> {{ paciente.nome }}</p>
 
-            <button>Ver pacientes</button>
+            <p><strong>Data de nascimento:</strong> {{ paciente.nascimento }}</p>
+
+            <p><strong>CPF:</strong> {{ paciente.cpf }}</p>
+
+            <p><strong>Telefone:</strong> {{ paciente.telefone }}</p>
+
+            <p><strong>E-mail:</strong> {{ paciente.email }}</p>
 
         </section>
 
