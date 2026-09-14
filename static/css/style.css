@@ -1,22 +1,71 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
 }
 
 header {
-    padding: 20px;
-    text-align: center;
+padding: 20px;
+text-align: center;
 }
 
 main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+max-width: 900px;
+margin: 40px auto;
+padding: 20px;
 }
 
 button {
-    padding: 12px 20px;
-    margin: 10px;
-    cursor: pointer;
+padding: 12px 20px;
+margin: 10px;
+cursor: pointer;
 }
+
+/* Tabela de pacientes */
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 30px;
+}
+
+th,
+td {
+border: 1px solid #ddd;
+padding: 12px;
+text-align: left;
+}
+
+th {
+background-color: #f2f2f2;
+font-weight: bold;
+}
+
+tr:hover {
+background-color: #f8f8f8;
+}
+
+/* Formulário */
+
+form {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+input,
+textarea {
+padding: 10px;
+margin-bottom: 10px;
+font-size: 16px;
+}
+
+textarea {
+min-height: 100px;
+resize: vertical;
+
+td form {
+    display: inline;
+    
+}
+

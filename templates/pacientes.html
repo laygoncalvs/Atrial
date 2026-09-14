@@ -6,58 +6,87 @@
     <meta charset="UTF-8">
     <title>Pacientes - Atrial</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+```
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+```
+
 </head>
 
 <body>
 
-    <header>
-        <h1>Atrial</h1>
-    </header>
+```
+<header>
+    <h1>Atrial</h1>
+</header>
 
-    <main>
+<main>
 
-        <h2>Pacientes cadastrados</h2>
+    <h2>Pacientes cadastrados</h2>
 
-        <p>Aqui serão exibidos os pacientes cadastrados no sistema.</p>
+    <p>Lista de pacientes cadastrados no sistema.</p>
 
-        <section>
+    <a href="{{ url_for('cadastro_paciente') }}">
+        <button type="button">Novo paciente</button>
+    </a>
 
-            <h3>Lista de pacientes</h3>
+    {% if pacientes %}
 
-            {% if pacientes %}
+    <table>
 
-                {% for paciente in pacientes %}
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Nascimento</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
-                    <div>
+        <tbody>
 
-                        <p><strong>Nome:</strong> {{ paciente.nome }}</p>
+            {% for paciente in pacientes %}
 
-                        <p><strong>Nascimento:</strong> {{ paciente.nascimento }}</p>
+            <tr>
 
-                        <p><strong>CPF:</strong> {{ paciente.cpf }}</p>
+                <td>{{ paciente.id }}</td>
+                <td>{{ paciente.nome }}</td>
+                <td>{{ paciente.nascimento }}</td>
+                <td>{{ paciente.cpf }}</td>
+                <td>{{ paciente.telefone }}</td>
+                <td>{{ paciente.email }}</td>
 
-                        <p><strong>Telefone:</strong> {{ paciente.telefone }}</p>
+                <td>
+                    <a href="{{ url_for('editar_paciente', id=paciente.id) }}">
+    <button type="button">Editar</button>
+</a>
+    <form
+    method="POST"
+    action="{{ url_for('excluir_paciente', id=paciente.id) }}"
+    onsubmit="return confirm('Tem certeza que deseja excluir este paciente?');"
+>
+    <button type="submit">Excluir</button>
+</form>
+                </td>
 
-                        <p><strong>E-mail:</strong> {{ paciente.email }}</p>
+            </tr>
 
-                        <p><strong>Observações:</strong> {{ paciente.observacoes }}</p>
+            {% endfor %}
 
-                    </div>
+        </tbody>
 
-                    <hr>
+    </table>
 
-                {% endfor %}
+    {% else %}
 
-            {% else %}
+    <p>Nenhum paciente cadastrado ainda.</p>
 
-                <p>Nenhum paciente cadastrado ainda.</p>
+    {% endif %}
 
-            {% endif %}
-
-        </section>
-
-    </main>
+</main>
+```
 
 </body>
 

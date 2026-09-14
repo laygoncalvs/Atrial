@@ -62,6 +62,35 @@ def pacientes():
 
     return render_template("pacientes.html", pacientes=pacientes)
 
+@app.route("/pacientes/editar/<int:id>", methods=["GET", "POST"])
+def editar_paciente(id):
+
+    paciente = Paciente.query.get_or_404(id)
+
+    if request.method == "POST":
+
+        paciente.nome = request.form["nome"]
+        paciente.nascimento = request.form["nascimento"]
+        paciente.cpf = request.form["cpf"]
+        paciente.telefone = request.form["telefone"]
+        paciente.email = request.form["email"]
+        paciente.observacoes = request.form["observacoes"]
+
+        db.session.commit()
+
+        return redirect(url_for("pacientes"))
+
+    return render_template("editar_paciente.html", paciente=paciente)
+
+@app.route("/pacientes/excluir/<int:id>", methods=["POST"])
+def excluir_paciente(id):
+
+    paciente = Paciente.query.get_or_404(id)
+
+    db.session.delete(paciente)
+    db.session.commit()
+
+    return redirect(url_for("pacientes"))    
 
 if __name__ == "__main__":
 
