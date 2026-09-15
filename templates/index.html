@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Pacientes - Atrial</title>
+    <title>Atrial</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -14,25 +14,24 @@
     </header>
 
     <main>
+        <h2>Sistema de atendimento</h2>
 
-        <h2>Pacientes cadastrados</h2>
+        <p>Bem-vindo ao Atrial.</p>
 
-        <section>
+        <p>
+            Cadastre pacientes e acompanhe as informações de atendimento.
+        </p>
 
-            <h3>Paciente</h3>
+        <a href="{{ url_for('cadastro_paciente') }}">
+            Cadastrar paciente
+        </a>
 
-            <p><strong>Nome:</strong> {{ paciente.nome }}</p>
+        <br>
+        <br>
 
-            <p><strong>Data de nascimento:</strong> {{ paciente.nascimento }}</p>
-
-            <p><strong>CPF:</strong> {{ paciente.cpf }}</p>
-
-            <p><strong>Telefone:</strong> {{ paciente.telefone }}</p>
-
-            <p><strong>E-mail:</strong> {{ paciente.email }}</p>
-
-        </section>
-
+        <a href="{{ url_for('pacientes') }}">
+            Ver pacientes cadastrados
+        </a>
     </main>
 
 </body>
