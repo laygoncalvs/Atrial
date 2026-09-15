@@ -78,3 +78,16 @@ tr:hover {
 td form {
     display: inline;
 }
+.prioridade-normal {
+    font-weight: bold;
+}
+
+.prioridade-preferencial {
+    font-weight: bold;
+    background-color: #fff3cd;
+}
+
+.prioridade-urgente {
+    font-weight: bold;
+    background-color: #f8d7da;
+}
