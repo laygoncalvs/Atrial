@@ -30,6 +30,7 @@
 
             <thead>
                 <tr>
+                    <th>Posição</th>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Nascimento</th>
@@ -46,6 +47,7 @@
                 {% for paciente in pacientes %}
 
                 <tr>
+                    <td>{{ loop.index }}</td>
                     <td>{{ paciente.id }}</td>
                     <td>{{ paciente.nome }}</td>
                     <td>{{ paciente.nascimento }}</td>

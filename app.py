@@ -60,7 +60,15 @@ def cadastro_paciente():
 
 @app.route("/pacientes")
 def pacientes():
-    pacientes = Paciente.query.all()
+    pacientes = Paciente.query.order_by(
+        db.case(
+            (Paciente.prioridade == "Urgente", 1),
+            (Paciente.prioridade == "Preferencial", 2),
+            (Paciente.prioridade == "Normal", 3)
+        ),
+        Paciente.id
+    ).all()
+
     return render_template("pacientes.html", pacientes=pacientes)
 
 
